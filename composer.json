@@ -1,0 +1,19 @@
+{
+    "name": "vsilva472/laravel-pagtesouro",
+    "description": "Integração do framework Laravel com PagTesouro",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinicius Silva",
+            "email": "vsilva472@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vsilva472\\PagTesouro\\": "src/"
+        }
+    },
+    "require": {
+        "laravel/framework": ">=5.6"
+    }
+}
