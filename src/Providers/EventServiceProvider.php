@@ -8,15 +8,27 @@ use Illuminate\Support\Facades\Event;
 class EventServiceProvider extends ServiceProvider
 {
     /**
-     * Register any other events for your application.
+     * The event listener mappings for the application.
      *
+     * @var array
+     */
+    protected $listen = [
+        //
+    ];
+
+    /**
+     * Create a new service provider instance.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
-    public function boot()
+    public function __construct($app)
     {
-        Event::listen(
-            config('pagtesouro.events.webhook_received'),
-            [config('pagtesouro.listeners.check_payment_status'), 'handle']
-        );
+        parent::__construct($app);
+
+        $event      = config('pagtesouro.events.webhook_received');
+        $listener   = config('pagtesouro.listeners.check_payment_status');
+        
+        $this->listen[ $event ] = [ $listener ];
     }
 }
