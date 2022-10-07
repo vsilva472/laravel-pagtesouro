@@ -2,10 +2,27 @@
 
 namespace Vsilva472\PagTesouro\Services;
 
+use GuzzleHttp\Client;
 use Vsilva472\PagTesouro\Contracts\Http as HttpContract;
 
 class HttpClient implements HttpContract 
 {
+    /**
+     * @var \GuzzleHttp\Client
+     */
+    protected $client;
+
+    /**
+     * Class constructor
+     * 
+     * @param \GuzzleHttp\Client $client
+     * @return void
+     */
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
+
     /**
      * Makes a post request
      * 
