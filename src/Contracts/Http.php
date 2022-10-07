@@ -10,6 +10,8 @@ interface Http
      * @param   string  $url
      * @param   array   $data
      * @return  \GuzzleHttp\Psr7\Stream  $response
+     * 
+     * @see https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions
      */
     public function post(string $url, array $data);
 
@@ -18,6 +20,8 @@ interface Http
      * 
      * @param   string  $url
      * @return  \GuzzleHttp\Psr7\Stream  $response
+     * 
+     * @see https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions
      */
     public function get(string $url);
 }

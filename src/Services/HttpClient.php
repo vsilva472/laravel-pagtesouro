@@ -12,6 +12,8 @@ class HttpClient implements HttpContract
      * @param   string  $url
      * @param   array   $data
      * @return  \GuzzleHttp\Psr7\Stream  $response
+     * 
+     * @see https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions
      */
     public function post(string $url, array $data) 
     {
@@ -31,6 +33,8 @@ class HttpClient implements HttpContract
      * 
      * @param   string  $url
      * @return  \GuzzleHttp\Psr7\Stream  $response
+     * 
+     * @see https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions
      */
     public function get(string $url) 
     {
