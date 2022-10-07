@@ -33,6 +33,6 @@ class WebHookController extends Controller
         $event = config('pagtesouro.events.webhook_received');
         event(new $event($request->idPagamento, $request->dataHora));
 
-        return response()->noContent(Response::HTTP_OK);
+        return response(null, Response::HTTP_OK);
     }
 }
