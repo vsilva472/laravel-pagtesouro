@@ -13,7 +13,7 @@ class PagTesouro extends BaseService implements Payment, Status
 
     /**
      * Generates the url to be used on
-     * pagseguro iframe element 
+     * pagtesouro iframe element 
      * 
      * @param   string  $url
      * @return  string
