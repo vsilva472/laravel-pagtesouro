@@ -2,7 +2,6 @@
 
 namespace Vsilva472\PagTesouro\Services;
 
-use Illuminate\Support\Facades\Http;
 use Vsilva472\PagTesouro\Contracts\Http as HttpContract;
 
 class HttpClient implements HttpContract 
@@ -12,29 +11,33 @@ class HttpClient implements HttpContract
      * 
      * @param   string  $url
      * @param   array   $data
-     * @return  array   $response
-     * 
-     * @throws \Illuminate\Http\Client\RequestException 
+     * @return  \GuzzleHttp\Psr7\Stream  $response
      */
     public function post(string $url, array $data) 
     {
-        return Http::withToken(config('pagtesouro.token'))
-            ->post($url, $data)
-            ->throw();
+        $response = $this->client->post($url, [
+            'headers' => [
+                'Authorization' => "Bearer " . config('pagtesouro.token'),
+                'content-type' => 'application/json'
+            ],
+            'body' => json_encode($data)
+        ]);
+
+        return $response->getBody();
     }
 
     /**
      * Makes a get request
      * 
      * @param   string  $url
-     * @return  array   $response
-     * 
-     * @throws \Illuminate\Http\Client\RequestException 
+     * @return  \GuzzleHttp\Psr7\Stream  $response
      */
     public function get(string $url) 
     {
-        return Http::withToken(config('pagtesouro.token'))
-            ->get($url)
-            ->throw();
+        $request = $this->client->get($url, [
+            'headers' => ['Authorization' => "Bearer " . config('pagtesouro.token')]
+        ]);
+
+        return $request->getBody();
     }
 }

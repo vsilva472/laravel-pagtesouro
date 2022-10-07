@@ -9,9 +9,7 @@ interface Http
      * 
      * @param   string  $url
      * @param   array   $data
-     * @return  \Illuminate\Http\Client\Response  $response
-     * 
-     * @throws \Illuminate\Http\Client\RequestException 
+     * @return  \GuzzleHttp\Psr7\Stream  $response
      */
     public function post(string $url, array $data);
 
@@ -19,9 +17,7 @@ interface Http
      * Makes a get request
      * 
      * @param   string  $url
-     * @return  \Illuminate\Http\Client\Response   $response
-     * 
-     * @throws \Illuminate\Http\Client\RequestException 
+     * @return  \GuzzleHttp\Psr7\Stream  $response
      */
     public function get(string $url);
 }
