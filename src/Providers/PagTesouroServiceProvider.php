@@ -72,7 +72,11 @@ class PagTesouroServiceProvider extends ServiceProvider
     {
         $configPath = $this->packagePath('config/pagtesouro.php');
         $this->mergeConfigFrom($configPath, 'pagtesouro');
-        $this->publishes([$configPath => config_path('pagtesouro.php')], 'pagtesouro');
+        
+        $this->publishes([
+            $configPath => config_path('pagtesouro.php'),
+            $this->packagePath('resources/assets') => public_path('vendor/pagtesouro')
+        ], 'pagtesouro');
     }
 
     /**
