@@ -4,7 +4,6 @@ function PagTesouroIframe () {
     
     this.setCss();
     this.setJavascript();
-    this.validateDomain();
 }
 
 PagTesouroIframe.prototype.inSandbox = function () {
@@ -29,11 +28,14 @@ PagTesouroIframe.prototype.setJavascript = function () {
 };
 
 PagTesouroIframe.prototype.render = function (element, callback) {
+    var url = element.getAttribute('data-payment-url');
     var iframe = document.createElement('iframe');
+
+    this.validateDomain(url);
 
     iframe.setAttribute('class', 'iframe-epag');
     iframe.setAttribute('scrolling', 'no');
-    iframe.setAttribute('src', element.getAttribute('data-payment-url'));
+    iframe.setAttribute('src', url);
     
     element.appendChild(iframe);
 
