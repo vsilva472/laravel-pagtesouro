@@ -1,8 +1,10 @@
 function PagTesouroIframe () {
     this.sandbox = false;
-
+    this.domains = { homol: 'https://valpagtesouro.tesouro.gov.br', prod: 'https://pagtesouro.tesouro.gov.br' };
+    
     this.setCss();
     this.setJavascript();
+    this.validateDomain();
 }
 
 PagTesouroIframe.prototype.inSandbox = function () {
@@ -42,12 +44,18 @@ PagTesouroIframe.prototype.render = function (element, callback) {
     if (callback) this.handleEvent(callback);
 };
 
+PagTesouroIframe.prototype.validateDomain = function (url) {
+    if (url.indexOf(this.domains.prod) == 0 
+        || url.indexOf(this.domains.homol) == 0
+    ) throw new Error('Invalid domain data-payment-url attribute');
+};
+
 PagTesouroIframe.prototype.handleEvent = function (callback) {
     if (!callback) return;
 
     let origin = this.sandbox 
-        ? 'https://valpagtesouro.tesouro.gov.br' 
-        : 'https://pagtesouro.tesouro.gov.br';
+        ? this.domains.homol
+        : this.domains.prod;
 
     window.addEventListener("message", function (event) { 
         if (event.origin !== origin) return;
