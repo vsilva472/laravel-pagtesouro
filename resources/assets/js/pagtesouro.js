@@ -27,29 +27,28 @@ PagTesouroIframe.prototype.setJavascript = function () {
     head.appendChild(script);
 };
 
-PagTesouroIframe.prototype.render = function (element, callback) {
-    var url = element.getAttribute('data-payment-url');
-    var iframe = document.createElement('iframe');
+PagTesouroIframe.prototype.render = function (selector, callback) {
+    var element = document.querySelector(selector);
+    var url     = element.getAttribute('data-payment-url');
+    var iframe  = document.createElement('iframe');
 
-    this.validateDomain(url);
-
+    if(!this.isPagTesouroDomain(url)) throw new Error('Invalid domain data-payment-url attribute');
+    
     iframe.setAttribute('class', 'iframe-epag');
     iframe.setAttribute('scrolling', 'no');
     iframe.setAttribute('src', url);
     
     element.appendChild(iframe);
 
-    iframe.onload = function () {
-        iFrameResize({ heightCalculationMethod: "documentElementOffset" }, ".iframe-epag");
-    };
+    iframe.onload = () => iFrameResize({ heightCalculationMethod: "documentElementOffset" }, ".iframe-epag");
 
     if (callback) this.handleEvent(callback);
 };
 
-PagTesouroIframe.prototype.validateDomain = function (url) {
-    if (url.indexOf(this.domains.prod) == 0 
+PagTesouroIframe.prototype.isPagTesouroDomain = function (url) {
+    return (url.indexOf(this.domains.prod) == 0 
         || url.indexOf(this.domains.homol) == 0
-    ) throw new Error('Invalid domain data-payment-url attribute');
+    );
 };
 
 PagTesouroIframe.prototype.handleEvent = function (callback) {
