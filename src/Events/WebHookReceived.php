@@ -26,7 +26,7 @@ class WebHookReceived
      * Create a new event instance.
      *
      * @param  String $payment_id
-     * @param  String $payment_status
+     * @param  String $date
      * @return void
      */
     public function __construct(string $payment_id, string $date)

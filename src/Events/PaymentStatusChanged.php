@@ -18,8 +18,7 @@ class PaymentStatusChanged
     /**
      * Create a new event instance.
      *
-     * @param  String $payment_id
-     * @param  String $payment_status
+     * @param  String $payment
      * @return void
      */
     public function __construct(array $payment)
