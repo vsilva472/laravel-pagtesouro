@@ -20,6 +20,7 @@ Toda a documentação está disponível nas [Páginas da Wiki](https://github.co
 
 ### Leitura obrigatória
 - [Documentação oficial do PagTesouro](https://valpagtesouro.tesouro.gov.br/simulador/#/pages/api)
+- [Como obter o token de homoloção](https://pagtesouro.tesouro.gov.br/docs/orgao)
 
 ![image](https://user-images.githubusercontent.com/4265802/194373515-4b83e43c-832b-4309-a416-82dc65ade58a.png)
 
