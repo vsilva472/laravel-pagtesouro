@@ -6,8 +6,6 @@ Um pacote com recursos para facilitar a implementação de pagamentos via **PagT
 <a href="https://github.com/vsilva472/laravel-pagtesouro"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/vsilva472/laravel-pagtesouro"></a>
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/vsilva472/laravel-pagtesouro">
 <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/vsilva472/laravel-pagtesouro">
-<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/vsilva472/laravel-pagtesouro/total">
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/vsilva472/laravel-pagtesouro/v1.0.0/total">
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/vsilva472/laravel-pagtesouro">
 
 
